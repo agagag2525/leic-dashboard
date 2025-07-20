@@ -20,7 +20,9 @@ try:
 
     st.markdown("### 💰 Uang Per Tim")
     if "Rank" in df.columns and "Uang" in df.columns:
-        st.dataframe(df[["Rank", "Uang"]])
+        display_df = df[["Rank", "Uang"]].copy()
+        display_df.index = display_df.index + 1
+        st.dataframe(display_df)
     else:
         st.warning("Kolom 'Rank' dan/atau 'Uang' tidak ditemukan.")
 except Exception as e:
