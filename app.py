@@ -19,33 +19,34 @@ logos = [
     "IC.png",                                    # Industrial Challenge
     "Primary_Horizontal%20Logo.png",            # Kampus Berdampak
 ]
+
 st.markdown("""
 <style>
 .logo-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-gap: 24px;
-margin-bottom: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 .logo-container img {
-max-height: 80px;
-height: auto;
-max-width: 100%;
-object-fit: contain;
+    max-height: 80px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 @media (max-width: 768px) {
-.logo-container img {
-max-height: 60px;
-}
+    .logo-container img {
+        max-height: 60px;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
 
 logo_html = "<div class='logo-container'>"
 for logo in logos:
-logo_html += f"<img src='{base_img_url}{logo}' alt='logo'>"
+    logo_html += f"<img src='{base_img_url}{logo}' alt='logo'>"
 logo_html += "</div>"
 st.markdown(logo_html, unsafe_allow_html=True)
 
