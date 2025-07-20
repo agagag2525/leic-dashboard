@@ -16,15 +16,13 @@ try:
     df = pd.read_csv(url, dtype=str).fillna("")
     df = df.dropna(axis=1, how='all')
 
-    df.columns = ["Rank", "Uang"]
-
     st.success("✅ Data berhasil dimuat!")
 
-    df_display = df.copy()
-    df_display.insert(0, "Rank", range(1, len(df_display) + 1))
-
     st.markdown("### 💰 Uang Per Tim")
-    st.dataframe(df_display)
+    if "Rank" in df.columns and "Uang" in df.columns:
+    st.dataframe(df[["Rank", "Uang"]])
+else:
+    st.warning("Kolom 'Rank' dan/atau 'Uang' tidak ditemukan.")
 
 except Exception as e:
     st.error(f"❌ Gagal memuat data: {e}")
