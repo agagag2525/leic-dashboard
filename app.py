@@ -11,25 +11,26 @@ url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sh
 st.set_page_config(page_title="LEIC 2K25 Dashboard", layout="wide")
 
 base_img_url = "https://raw.githubusercontent.com/agagag2525/leic-dashboard/main/assets/"
-logo_paths = {
-    "WM": "Logo_WM_Standar_PNG.png",
-    "TI": "TI.png",
-    "HMPS": "HMPS.PNG",
-    "IC": "IC.png",
-    "KB": "Primary_Horizontal%20Logo.png"
-}
-col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
 
-with col1:
-    st.image(base_img_url + logo_paths["WM"], width=100)
-with col2:
-    st.image(base_img_url + logo_paths["TI"], width=100)
-with col3:
-    st.image(base_img_url + logo_paths["HMPS"], width=100)
-with col4:
-    st.image(base_img_url + logo_paths["IC"], width=100)
-with col5:
-    st.image(base_img_url + logo_paths["KB"], width=100)
+logos = [
+    "Logo_WM_Standar_PNG.png",                  # WM
+    "TI.png",                                    # TI
+    "HMPS.PNG",                                  # HMPS TI
+    "IC.png",                                    # Industrial Challenge
+    "Primary_Horizontal%20Logo.png",            # Kampus Berdampak
+]
+
+# Layout 5 kolom sejajar untuk logo
+cols = st.columns(5)
+
+for col, logo_file in zip(cols, logos):
+    with col:
+        st.markdown(
+            f"<div style='text-align:center'>"
+            f"<img src='{base_img_url}{logo_file}' style='height:80px; object-fit:contain;'>"
+            f"</div>",
+            unsafe_allow_html=True
+        )
 
 st.title("🚛 Logistics Execution Industrial Challenge 2K25")
 st.subheader("📊 Real-Time Dashboard")
