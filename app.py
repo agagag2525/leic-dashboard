@@ -19,18 +19,35 @@ logos = [
     "IC.png",                                    # Industrial Challenge
     "Primary_Horizontal%20Logo.png",            # Kampus Berdampak
 ]
+st.markdown("""
+<style>
+.logo-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+gap: 24px;
+margin-bottom: 32px;
+}
+.logo-container img {
+max-height: 80px;
+height: auto;
+max-width: 100%;
+object-fit: contain;
+}
+@media (max-width: 768px) {
+.logo-container img {
+max-height: 60px;
+}
+}
+</style>
+""", unsafe_allow_html=True)
 
-# Layout 5 kolom sejajar untuk logo
-cols = st.columns(5)
-
-for col, logo_file in zip(cols, logos):
-    with col:
-        st.markdown(
-            f"<div style='text-align:center'>"
-            f"<img src='{base_img_url}{logo_file}' style='height:80px; object-fit:contain;'>"
-            f"</div>",
-            unsafe_allow_html=True
-        )
+logo_html = "<div class='logo-container'>"
+for logo in logos:
+logo_html += f"<img src='{base_img_url}{logo}' alt='logo'>"
+logo_html += "</div>"
+st.markdown(logo_html, unsafe_allow_html=True)
 
 st.title("🚛 Logistics Execution Industrial Challenge 2K25")
 st.subheader("📊 Real-Time Dashboard")
