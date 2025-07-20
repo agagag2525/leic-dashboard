@@ -10,23 +10,18 @@ url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sh
 
 st.set_page_config(page_title="LEIC 2K25 Dashboard", layout="wide")
 
-logo_urls = [
-    "https://drive.google.com/uc?export=view&id=1LuA3DfdXXRXDiqFJpCiVjyJsMX0UXOsI",  # WM
-    "https://drive.google.com/uc?export=view&id=1XNy3M4hWvEfC7kHbCyWeoq5-IgHcwgbz",  # TI
-    "https://drive.google.com/uc?export=view&id=13Yms8QdLPh63OR0PUYxoTyA0H9YaHxjL",  # HMPS
-    "https://drive.google.com/uc?export=view&id=1dBrtaa64m8HcJ927N6J9W5to9eU00Ayj",  # IC
-]
-right_logo_url = "https://drive.google.com/uc?export=view&id=1HijbSANYKVzavYqNkW7b64hokDmWm7kD"  # Kampus Berdampak
+col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
 
-left_col, right_col = st.columns([4, 1])
-with left_col:
-    logo_cols = st.columns(len(logo_urls))
-    for col, url in zip(logo_cols, logo_urls):
-        with col:
-            st.image(url, width=90)
-
-with right_col:
-    st.image(right_logo_url, width=90, use_column_width=False)
+with col1:
+    st.image("https://drive.google.com/uc?export=view&id=1LuA3DfdXXRXDiqFJpCiVjyJsMX0UXOsI", width=100)  # WM
+with col2:
+    st.image("https://drive.google.com/uc?export=view&id=1XNy3M4hWvEfC7kHbCyWeoq5-IgHcwgbz", width=100)  # TI
+with col3:
+    st.image("https://drive.google.com/uc?export=view&id=13Yms8QdLPh63OR0PUYxoTyA0H9YaHxjL", width=100)  # HMPS
+with col4:
+    st.image("https://drive.google.com/uc?export=view&id=1dBrtaa64m8HcJ927N6J9W5to9eU00Ayj", width=100)  # IC
+with col5:
+    st.image("https://drive.google.com/uc?export=view&id=1HijbSANYKVzavYqNkW7b64hokDmWm7kD", width=100)  # Kampus Berdampak
 
 st.title("🚛 Logistics Execution Industrial Challenge 2K25")
 st.subheader("📊 Real-Time Dashboard")
