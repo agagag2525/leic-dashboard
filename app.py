@@ -12,43 +12,18 @@ st.set_page_config(page_title="LEIC 2K25 Dashboard", layout="wide")
 
 base_img_url = "https://raw.githubusercontent.com/agagag2525/leic-dashboard/main/assets/"
 
-logos = [
-    "Logo_WM_Standar_PNG.png",                  # WM
-    "TI.png",                                    # TI
-    "HMPS.PNG",                                  # HMPS TI
-    "IC.png",                                    # Industrial Challenge
-    "Primary_Horizontal%20Logo.png",            # Kampus Berdampak
-]
-
+# HEADER image
 st.markdown("""
-<style>
-.logo-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 32px;
-}
-.logo-container img {
-    max-height: 80px;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-}
-@media (max-width: 768px) {
-    .logo-container img {
-        max-height: 60px;
-    }
-}
-</style>
+    <style>
+        .header-img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 24px;
+        }
+    </style>
 """, unsafe_allow_html=True)
 
-logo_html = "<div class='logo-container'>"
-for logo in logos:
-    logo_html += f"<img src='{base_img_url}{logo}' alt='logo'>"
-logo_html += "</div>"
-st.markdown(logo_html, unsafe_allow_html=True)
+st.markdown(f"<img src='{base_img_url}HEADER.png' class='header-img'>", unsafe_allow_html=True)
 
 st.title("🚛 Logistics Execution Industrial Challenge 2K25")
 st.subheader("📊 Real-Time Dashboard")
